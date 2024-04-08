@@ -1,9 +1,9 @@
-function InputField({ labelInfo, type, onChange }) {
+function InputField({ labelName, labelFor, type, onChange }) {
   return (
     <>
-      <label>
-        {labelInfo + " :"}
-        <input type={type} onChange={onChange} />
+      <label for={labelFor}>
+        {labelName + " :"}
+        <input type={type} id={labelFor} onChange={onChange} />
       </label>
     </>
   );
@@ -17,9 +17,10 @@ function FormGeneralInformation({ onChange }) {
   return (
     <fieldSet>
       <legend>General Information</legend>
-      <InputField labelInfo={"Name"} onChange={onChange} />
-      <InputField labelInfo={"Email"} type={"email"} onChange={onChange} />
-      <InputField labelInfo={"Phone Number"} type={"tel"} onChange={onChange} />
+      <InputField labelName={"First Name"} labelFor={"first-name"} onChange={onChange} />
+      <InputField labelName={"Last Name"} labelFor={"last-name"} onChange={onChange} />
+      <InputField labelName={"Email"} type={"email"} labelFor={"email"} onChange={onChange} />
+      <InputField labelName={"Phone"} labelFor={"email"} type={"tel"} onChange={onChange} />
     </fieldSet>
   );
 }
