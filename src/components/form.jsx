@@ -39,8 +39,12 @@ function Section({ name, children }) {
 
 export function Form({ userData, setUserData }) {
   return (
-    <Section name={"General Information"}>
-      <FormGeneralInformation userData={userData} setUserData={setUserData} onChange={() => {}} />
-    </Section>
+    <form>
+      <Section name={"General Information"}>
+        <FormGeneralInformation userData={userData} setUserData={setUserData} onChange={() => {}} />
+      </Section>
+      <Section name={"Educational Background"} />
+      <Section name={"Job Experience"} />
+    </form>
   );
 }
