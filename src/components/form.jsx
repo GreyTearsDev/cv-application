@@ -88,6 +88,8 @@ function FormEducationalBackground({ schools }) {
 }
 function FormJobExperience({ experience }) {
   const [experienceInfo, setExperienceInfo] = useState(ExperienceFactory());
+  console.log(experienceInfo);
+  let characterCount = experienceInfo.responsabilities.length || 0;
 
   function handleAddClick() {
     user.experience.push(experienceInfo);
@@ -140,6 +142,7 @@ function FormJobExperience({ experience }) {
             onChange={(e) => handleChance(e, "responsabilities")}
           >
           </textarea>
+          <div>Characters: {characterCount}/300</div>
         </label>
       </div>
       <Button type="button" text="Add" onClick={handleAddClick} />
