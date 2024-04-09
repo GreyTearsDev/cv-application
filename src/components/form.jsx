@@ -98,6 +98,7 @@ function FormJobExperience({ experience }) {
 
   function handleChange(e, fieldName) {
     setExperienceInfo({ ...experienceInfo, [fieldName]: e.target.value });
+    characterCount = experienceInfo.responsabilities.length;
   }
 
   return (
@@ -139,7 +140,7 @@ function FormJobExperience({ experience }) {
             rows={5}
             maxLength={300}
             placeholder="describe your responsabilities"
-            onChange={(e) => handleChance(e, "responsabilities")}
+            onChange={(e) => handleChange(e, "responsabilities")}
           >
           </textarea>
           <div>Characters: {characterCount}/300</div>
