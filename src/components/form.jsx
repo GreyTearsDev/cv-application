@@ -11,7 +11,7 @@ function InputField({ labelName, labelFor, type, onChange }) {
     <>
       <label htmlFor={labelFor}>
         {labelName + ": "}
-        <input type={type} id={labelFor} name={labelFor} onChange={onChange} />
+        <input type={type} id={labelFor} name={labelFor} maxLength={type === "tel" ? 10 : 50} onChange={onChange} />
       </label>
     </>
   );
