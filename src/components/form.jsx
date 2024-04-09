@@ -11,7 +11,7 @@ function InputField({ labelName, labelFor, type, onChange }) {
     <>
       <label htmlFor={labelFor}>
         {labelName + ": "}
-        <input type={type} id={labelFor} onChange={onChange} />
+        <input type={type} id={labelFor} name={labelFor} onChange={onChange} />
       </label>
     </>
   );
@@ -50,36 +50,38 @@ function FormEducationalBackground({ schools }) {
 
   return (
     <>
-      <InputField
-        labelName="School Name"
-        LabelFor="school-name"
-        onChange={(e) => {
-          handleChange(e, "name");
-        }}
-      />
-      <InputField
-        labelName="Field of Study"
-        LabelFor="field-of-study"
-        onChange={(e) => {
-          handleChange(e, "field");
-        }}
-      />
-      <InputField
-        labelName="From"
-        LabelFor="from"
-        type="date"
-        onChange={(e) => {
-          handleChange(e, "start");
-        }}
-      />
-      <InputField
-        labelName="To"
-        LabelFor="to"
-        type="date"
-        onChange={(e) => {
-          handleChange(e, "end");
-        }}
-      />
+      <div>
+        <InputField
+          labelName="School Name"
+          LabelFor="school-name"
+          onChange={(e) => {
+            handleChange(e, "name");
+          }}
+        />
+        <InputField
+          labelName="Field of Study"
+          LabelFor="field-of-study"
+          onChange={(e) => {
+            handleChange(e, "field");
+          }}
+        />
+        <InputField
+          labelName="From"
+          LabelFor="from"
+          type="date"
+          onChange={(e) => {
+            handleChange(e, "start");
+          }}
+        />
+        <InputField
+          labelName="To"
+          LabelFor="to"
+          type="date"
+          onChange={(e) => {
+            handleChange(e, "end");
+          }}
+        />
+      </div>
       <Button type="button" text="Add" onClick={handleAddClick} />
     </>
   );
