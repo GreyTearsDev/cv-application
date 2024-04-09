@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ExperienceFactory from "../data/experienceFactory";
 import SchoolFactory from "../data/schoolFactory";
 
 function Button({ type, onClick, text }) {
@@ -35,7 +36,7 @@ function FormGeneralInformation({ user }) {
   );
 }
 
-function FormEducationalBackground({ user }) {
+function FormEducationalBackground({ schools }) {
   const [schoolInfo, setSchoolInfo] = useState(SchoolFactory());
 
   function handleAddClick() {
@@ -50,35 +51,95 @@ function FormEducationalBackground({ user }) {
   return (
     <>
       <InputField
-        labelName={"School Name"}
-        LabelFor={"school-name"}
+        labelName="School Name"
+        LabelFor="school-name"
         onChange={(e) => {
           handleChange(e, "name");
         }}
       />
       <InputField
-        labelName={"Field of Study"}
-        LabelFor={"field-of-study"}
+        labelName="Field of Study"
+        LabelFor="field-of-study"
         onChange={(e) => {
           handleChange(e, "field");
         }}
       />
       <InputField
-        labelName={"From"}
-        LabelFor={"from"}
-        type={"date"}
+        labelName="From"
+        LabelFor="from"
+        type="date"
         onChange={(e) => {
           handleChange(e, "start");
         }}
       />
       <InputField
-        labelName={"To"}
-        LabelFor={"to"}
-        type={"date"}
+        labelName="To"
+        LabelFor="to"
+        type="date"
         onChange={(e) => {
           handleChange(e, "end");
         }}
       />
+      <Button type="button" text="Add" onClick={handleAddClick} />
+    </>
+  );
+}
+function FormJobExperience({ experience }) {
+  const [experienceInfo, setExperienceInfo] = useState(ExperienceFactory());
+
+  function handleAddClick() {
+    user.experience.push(experienceInfo);
+    setExperienceInfo(ExperienceFactory());
+  }
+
+  function handleChange(e, fieldName) {
+    setExperienceInfo({ ...experienceInfo, [fieldName]: e.target.value });
+  }
+
+  return (
+    <>
+      <div>
+        <InputField
+          labelName="Company Name"
+          LabelFor="company-name"
+          onChange={(e) => {
+            handleChange(e, "company");
+          }}
+        />
+        <InputField
+          labelName="Role Title"
+          LabelFor="role-title"
+          onChange={(e) => {
+            handleChange(e, "role");
+          }}
+        />
+        <InputField
+          labelName="From"
+          LabelFor="from"
+          type="date"
+          onChange={(e) => {
+            handleChange(e, "start");
+          }}
+        />
+        <InputField
+          labelName="To"
+          LabelFor="to"
+          type="date"
+          onChange={(e) => handleChange(e, "end")}
+        />
+        <label htmlFor="responsabilities">
+          Responsabilities
+          <textarea
+            name="responsabilities"
+            cols={25}
+            rows={5}
+            maxLength={300}
+            placeholder="describe your responsabilities"
+            onChange={(e) => handleChance(e, "responsabilities")}
+          >
+          </textarea>
+        </label>
+      </div>
       <Button type="button" text="Add" onClick={handleAddClick} />
     </>
   );
@@ -100,9 +161,11 @@ export function Form({ user }) {
         <FormGeneralInformation user={user} />
       </Section>
       <Section name={"Educational Background"}>
-        <FormEducationalBackground user={user} />
+        <FormEducationalBackground schools={user.schools} />
       </Section>
-      <Section name={"Job Experience"} />
+      <Section name={"Job Experience"}>
+        <FormJobExperience experience={user.experience} />
+      </Section>
     </form>
   );
 }
