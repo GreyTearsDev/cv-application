@@ -3,6 +3,6 @@ export const User = {
   lastname: '',
   email: '',
   phone: '',
-  education: [],
+  schools: [],
   experience: [], 
 }
