@@ -40,7 +40,7 @@ function FormEducationalBackground({ schools }) {
   const [schoolInfo, setSchoolInfo] = useState(SchoolFactory());
 
   function handleAddClick() {
-    user.schools.push(schoolInfo);
+    schools.push(schoolInfo);
     setSchoolInfo(SchoolFactory());
   }
 
@@ -88,11 +88,10 @@ function FormEducationalBackground({ schools }) {
 }
 function FormJobExperience({ experience }) {
   const [experienceInfo, setExperienceInfo] = useState(ExperienceFactory());
-  console.log(experienceInfo);
   let characterCount = experienceInfo.responsabilities.length || 0;
 
   function handleAddClick() {
-    user.experience.push(experienceInfo);
+    experience.push(experienceInfo);
     setExperienceInfo(ExperienceFactory());
   }
 
