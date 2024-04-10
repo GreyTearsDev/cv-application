@@ -86,7 +86,7 @@ function FormGeneralInformation({ user }) {
       <InputField
         requiredField={true}
         labelName={"Phone"}
-        labelFor={"email"}
+        labelFor={"phone"}
         type={"tel"}
         onChange={(e) => handleChange(e, "phone")}
       />
@@ -205,6 +205,7 @@ function FormJobExperience({ experience }) {
         <label htmlFor="responsabilities">
           Responsabilities
           <textarea
+            id="responsabilities"
             name="responsabilities"
             cols={25}
             rows={5}
