@@ -142,7 +142,7 @@ function FormJobExperience({ experience }) {
             onChange={(e) => handleChange(e, "responsabilities")}
           >
           </textarea>
-          <div>Characters: {characterCount}/300</div>
+          <div>{characterCount}/300</div>
         </label>
       </div>
       <Button type="button" text="Add" onClick={handleAddClick} />
