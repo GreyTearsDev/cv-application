@@ -213,7 +213,7 @@ function Section({ name, children }) {
 export function Form({ user }) {
   return (
     <form>
-      <p>Required fields are marked with *</p>
+      <p>Required fields are marked with an asterisk (*)</p>
       <Section name={"General Information"}>
         <FormGeneralInformation user={user} />
       </Section>
