@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import ExperienceFactory from "../data/experienceFactory";
 import SchoolFactory from "../data/schoolFactory";
@@ -5,6 +6,12 @@ import SchoolFactory from "../data/schoolFactory";
 function Button({ type, onClick, text }) {
   return <button type={type} onClick={onClick}>{text}</button>;
 }
+
+Button.propTypes = {
+  type: PropTypes.string,
+  onClick: PropTypes.func,
+  text: PropTypes.string,
+};
 
 function InputField({ labelName, labelFor, type, onChange, requiredField }) {
   const [inputValue, setInputValue] = useState("");
@@ -42,8 +49,12 @@ function InputField({ labelName, labelFor, type, onChange, requiredField }) {
   );
 }
 
-InputField.defaultProps = {
-  type: "text",
+InputField.propTypes = {
+  labelName: PropTypes.string,
+  labelFor: PropTypes.string,
+  type: PropTypes.string,
+  onChange: PropTypes.func,
+  requiredField: PropTypes.bool,
 };
 
 function FormGeneralInformation({ user }) {
@@ -82,6 +93,10 @@ function FormGeneralInformation({ user }) {
     </>
   );
 }
+
+FormGeneralInformation.propTypes = {
+  user: PropTypes.object,
+};
 
 function FormEducationalBackground({ schools }) {
   const [schoolInfo, setSchoolInfo] = useState(SchoolFactory());
@@ -135,6 +150,11 @@ function FormEducationalBackground({ schools }) {
     </>
   );
 }
+
+FormEducationalBackground.propTypes = {
+  schools: PropTypes.array,
+};
+
 function FormJobExperience({ experience }) {
   const [experienceInfo, setExperienceInfo] = useState(ExperienceFactory());
   let characterCount = experienceInfo.responsabilities.length || 0;
@@ -201,6 +221,10 @@ function FormJobExperience({ experience }) {
   );
 }
 
+FormJobExperience.propTypes = {
+  experience: PropTypes.array,
+};
+
 function Section({ name, children }) {
   return (
     <fieldset>
@@ -209,6 +233,11 @@ function Section({ name, children }) {
     </fieldset>
   );
 }
+
+Section.propTypes = {
+  name: PropTypes.string,
+  children: PropTypes.object,
+};
 
 export function Form({ user }) {
   return (
@@ -226,3 +255,7 @@ export function Form({ user }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  user: PropTypes.object,
+};
