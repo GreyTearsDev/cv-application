@@ -6,12 +6,37 @@ function Button({ type, onClick, text }) {
   return <button type={type} onClick={onClick}>{text}</button>;
 }
 
-function InputField({ labelName, labelFor, type, onChange }) {
+function InputField({ labelName, labelFor, type, onChange, requiredField }) {
+  const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState("");
+
+  function handleInputChange(e) {
+    const value = e.target.value;
+    setInputValue(value);
+
+    if (requiredField && !value.trim()) {
+      setError("This field is required");
+    } else {
+      setError("");
+    }
+  }
   return (
     <>
       <label htmlFor={labelFor}>
-        {labelName + ": "}
-        <input type={type} id={labelFor} name={labelFor} maxLength={type === "tel" ? 10 : 50} onChange={onChange} />
+        {requiredField ? "*" + labelName : labelName}
+        {": "}
+        <input
+          type={type}
+          value={inputValue}
+          id={labelFor}
+          name={labelFor}
+          maxLength={type === "tel" ? 10 : 50}
+          onChange={(e) => {
+            handleInputChange(e);
+            onChange(e);
+          }}
+        />
+        {error && <p>{error}</p>}
       </label>
     </>
   );
@@ -28,10 +53,32 @@ function FormGeneralInformation({ user }) {
 
   return (
     <>
-      <InputField labelName={"First Name"} labelFor={"first-name"} onChange={(e) => handleChange(e, "firstName")} />
-      <InputField labelName={"Last Name"} labelFor={"last-name"} onChange={(e) => handleChange(e, "lastName")} />
-      <InputField labelName={"Email"} type={"email"} labelFor={"email"} onChange={(e) => handleChange(e, "email")} />
-      <InputField labelName={"Phone"} labelFor={"email"} type={"tel"} onChange={(e) => handleChange(e, "phone")} />
+      <InputField
+        requiredField={true}
+        labelName={"First Name"}
+        labelFor={"first-name"}
+        onChange={(e) => handleChange(e, "firstName")}
+      />
+      <InputField
+        requiredField={true}
+        labelName={"Last Name"}
+        labelFor={"last-name"}
+        onChange={(e) => handleChange(e, "lastName")}
+      />
+      <InputField
+        requiredField={true}
+        labelName={"Email"}
+        type={"email"}
+        labelFor={"email"}
+        onChange={(e) => handleChange(e, "email")}
+      />
+      <InputField
+        requiredField={true}
+        labelName={"Phone"}
+        labelFor={"email"}
+        type={"tel"}
+        onChange={(e) => handleChange(e, "phone")}
+      />
     </>
   );
 }
@@ -52,6 +99,7 @@ function FormEducationalBackground({ schools }) {
     <>
       <div>
         <InputField
+          requiredField={true}
           labelName="School Name"
           LabelFor="school-name"
           onChange={(e) => {
@@ -59,6 +107,7 @@ function FormEducationalBackground({ schools }) {
           }}
         />
         <InputField
+          requiredField={true}
           labelName="Field of Study"
           LabelFor="field-of-study"
           onChange={(e) => {
@@ -104,6 +153,7 @@ function FormJobExperience({ experience }) {
     <>
       <div>
         <InputField
+          requiredField={true}
           labelName="Company Name"
           LabelFor="company-name"
           onChange={(e) => {
@@ -111,6 +161,7 @@ function FormJobExperience({ experience }) {
           }}
         />
         <InputField
+          requiredField={true}
           labelName="Role Title"
           LabelFor="role-title"
           onChange={(e) => {
@@ -138,7 +189,7 @@ function FormJobExperience({ experience }) {
             cols={25}
             rows={5}
             maxLength={300}
-            placeholder="describe your responsabilities"
+            placeholder="Describe your main responsabilities"
             onChange={(e) => handleChange(e, "responsabilities")}
           >
           </textarea>
@@ -162,6 +213,7 @@ function Section({ name, children }) {
 export function Form({ user }) {
   return (
     <form>
+      <p>Required fields are marked with *</p>
       <Section name={"General Information"}>
         <FormGeneralInformation user={user} />
       </Section>
