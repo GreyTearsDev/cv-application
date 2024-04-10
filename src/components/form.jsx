@@ -49,6 +49,10 @@ function InputField({ labelName, labelFor, type, onChange, requiredField }) {
   );
 }
 
+InputField.defaultProps = {
+  type: "text",
+};
+
 InputField.propTypes = {
   labelName: PropTypes.string,
   labelFor: PropTypes.string,
