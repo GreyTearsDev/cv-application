@@ -116,7 +116,7 @@ function FormEducationalBackground({ schools }) {
         <InputField
           requiredField={true}
           labelName="School Name"
-          LabelFor="school-name"
+          labelFor="school-name"
           onChange={(e) => {
             handleChange(e, "name");
           }}
@@ -124,14 +124,14 @@ function FormEducationalBackground({ schools }) {
         <InputField
           requiredField={true}
           labelName="Field of Study"
-          LabelFor="field-of-study"
+          labelFor="field-of-study"
           onChange={(e) => {
             handleChange(e, "field");
           }}
         />
         <InputField
           labelName="From"
-          LabelFor="from"
+          labelFor="from"
           type="date"
           onChange={(e) => {
             handleChange(e, "start");
@@ -139,7 +139,7 @@ function FormEducationalBackground({ schools }) {
         />
         <InputField
           labelName="To"
-          LabelFor="to"
+          labelFor="to"
           type="date"
           onChange={(e) => {
             handleChange(e, "end");
@@ -175,7 +175,7 @@ function FormJobExperience({ experience }) {
         <InputField
           requiredField={true}
           labelName="Company Name"
-          LabelFor="company-name"
+          labelFor="company-name"
           onChange={(e) => {
             handleChange(e, "company");
           }}
@@ -183,14 +183,14 @@ function FormJobExperience({ experience }) {
         <InputField
           requiredField={true}
           labelName="Role Title"
-          LabelFor="role-title"
+          labelFor="role-title"
           onChange={(e) => {
             handleChange(e, "role");
           }}
         />
         <InputField
           labelName="From"
-          LabelFor="from"
+          labelFor="from"
           type="date"
           onChange={(e) => {
             handleChange(e, "start");
@@ -198,7 +198,7 @@ function FormJobExperience({ experience }) {
         />
         <InputField
           labelName="To"
-          LabelFor="to"
+          labelFor="to"
           type="date"
           onChange={(e) => handleChange(e, "end")}
         />
