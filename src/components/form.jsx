@@ -39,6 +39,7 @@ function InputField(props) {
             handleInputChange(e);
             props.onChange(e);
           }}
+          autoComplete={props.autoComplete}
         />
         {error && <p>{error}</p>}
       </label>
@@ -46,12 +47,18 @@ function InputField(props) {
   );
 }
 
+InputField.defaultProps = {
+  type: "text",
+  autoComplete: "on",
+};
+
 InputField.propTypes = {
   labelName: PropTypes.string,
   labelFor: PropTypes.string,
   type: PropTypes.string,
   onChange: PropTypes.func,
   requiredField: PropTypes.bool,
+  autoComplete: PropTypes.string,
 };
 
 function FormGeneralInformation({ user }) {
@@ -65,12 +72,14 @@ function FormGeneralInformation({ user }) {
         requiredField={true}
         labelName={"First Name"}
         labelFor={"first-name"}
+        autoComplete="given-name"
         onChange={(e) => handleChange(e, "firstName")}
       />
       <InputField
         requiredField={true}
         labelName={"Last Name"}
         labelFor={"last-name"}
+        autoComplete="family-name"
         onChange={(e) => handleChange(e, "lastName")}
       />
       <InputField
@@ -78,6 +87,7 @@ function FormGeneralInformation({ user }) {
         labelName={"Email"}
         type={"email"}
         labelFor={"email"}
+        autoComplete="off"
         onChange={(e) => handleChange(e, "email")}
       />
       <InputField
