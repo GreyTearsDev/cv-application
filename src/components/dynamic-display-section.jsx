@@ -18,7 +18,7 @@ export default function DynamicDisplaySection({ user, setUser, arrayName }) {
           dateStart={info.start}
           dateEnd={info.end}
           onClick={handleRemoval}
-          text={IS_SCHOOL ? info.responsabilities : ""}
+          text={!IS_SCHOOL ? info.responsabilities : ""}
         />
       ))}
     </>
