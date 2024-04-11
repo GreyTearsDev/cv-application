@@ -64,7 +64,7 @@ InputField.propTypes = {
 function FormGeneralInformation({ user, setUser }) {
   function handleChange(e, fieldName) {
     user[fieldName] = e.target.value;
-    setUser({ ...user, fieldName: e.target.value });
+    setUser(prevUser => ({ ...prevUser, fieldName: e.target.value }));
   }
 
   return (
@@ -116,7 +116,7 @@ function FormEducationalBackground({ setUser }) {
   }
 
   function handleChange(e, fieldName) {
-    setSchoolInfo({ ...schoolInfo, [fieldName]: e.target.value });
+    setSchoolInfo(prevSchoolInfo => ({ ...prevSchoolInfo, [fieldName]: e.target.value }));
   }
 
   return (
@@ -174,7 +174,7 @@ function FormJobExperience({ setUser }) {
   }
 
   function handleChange(e, fieldName) {
-    setExperienceInfo({ ...experienceInfo, [fieldName]: e.target.value });
+    setExperienceInfo(prevExperienceInfo => ({ ...prevExperienceInfo, [fieldName]: e.target.value }));
     characterCount = experienceInfo.responsabilities.length;
   }
 
