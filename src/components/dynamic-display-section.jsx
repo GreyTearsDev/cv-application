@@ -1,21 +1,24 @@
 import PropTypes from "prop-types";
 import Card from "./card";
 
-export default function DynamicDisplaySection({ user, setUser }) {
+export default function DynamicDisplaySection({ user, setUser, arrayName }) {
+  const IS_SCHOOL = arrayName === "schools";
+
   function handleRemoval(id) {
-    setUser(prevUser => ({ ...prevUser, schools: prevUser.schools.filter(s => s.id !== id) }));
+    setUser(prevUser => ({ ...prevUser, [arrayName]: prevUser[arrayName].filter(s => s.id !== id) }));
   }
   return (
     <>
-      {user.schools.map(schoolInfo => (
+      {user[arrayName].map(info => (
         <Card
-          name={schoolInfo.name}
-          roleOrField={schoolInfo.field}
-          key={schoolInfo.id}
-          id={schoolInfo.id}
-          dateStart={schoolInfo.start}
-          dateEnd={schoolInfo.end}
+          name={IS_SCHOOL ? info.name : info.company}
+          roleOrField={IS_SCHOOL ? info.field : info.role}
+          key={info.id}
+          id={info.id}
+          dateStart={info.start}
+          dateEnd={info.end}
           onClick={handleRemoval}
+          text={IS_SCHOOL ? info.responsabilities : ""}
         />
       ))}
     </>
@@ -25,4 +28,5 @@ export default function DynamicDisplaySection({ user, setUser }) {
 DynamicDisplaySection.propTypes = {
   user: PropTypes.object,
   setUser: PropTypes.func,
+  arrayName: PropTypes.string,
 };
