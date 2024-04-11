@@ -1,6 +1,6 @@
 export const User = {
   firstName: '',
-  lastname: '',
+  lastName: '',
   email: '',
   phone: '',
   schools: [],
