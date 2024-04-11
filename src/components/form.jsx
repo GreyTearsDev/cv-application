@@ -13,7 +13,7 @@ Button.propTypes = {
   text: PropTypes.string,
 };
 
-function InputField({ labelName, labelFor, type = "text", onChange, requiredField }) {
+function InputField(props) {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
 
@@ -21,22 +21,23 @@ function InputField({ labelName, labelFor, type = "text", onChange, requiredFiel
     const value = e.target.value;
     setInputValue(value);
 
-    (requiredField && !value.trim()) ? setError("This field is required") : setError("");
+    (props.requiredField && !value.trim()) ? setError("This field is required") : setError("");
   }
+
   return (
     <>
-      <label htmlFor={labelFor}>
-        {requiredField ? "*" + labelName : labelName}
+      <label htmlFor={props.labelFor}>
+        {props.requiredField ? "*" + props.labelName : props.labelName}
         {": "}
         <input
-          type={type}
+          type={props.type}
           value={inputValue}
-          id={labelFor}
-          name={labelFor}
-          maxLength={type === "tel" ? 10 : 50}
+          id={props.labelFor}
+          name={props.labelFor}
+          maxLength={props.type === "tel" ? 10 : 50}
           onChange={(e) => {
             handleInputChange(e);
-            onChange(e);
+            props.onChange(e);
           }}
         />
         {error && <p>{error}</p>}
