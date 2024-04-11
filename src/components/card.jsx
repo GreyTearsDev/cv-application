@@ -28,7 +28,7 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
 Card.propTypes = {
   name: PropTypes.string,
   roleOrField: PropTypes.string,
-  id: PropTypes.number,
+  id: PropTypes.string,
   dateStart: PropTypes.string,
   dateEnd: PropTypes.string,
   onClick: PropTypes.func,
