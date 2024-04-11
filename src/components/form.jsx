@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
+import FormEducationalBackground from "./form-educational-background";
 import FormGeneralInformation from "./form-general-info";
-import FormEducationalBackground from "./form-general-info";
 import FormJobExperience from "./form-job-experience";
 import Section from "./section";
 
-export function Form({ user, setUser }) {
+export default function Form({ user, setUser }) {
   return (
     <form>
       <p>Required fields are marked with an asterisk (*)</p>
