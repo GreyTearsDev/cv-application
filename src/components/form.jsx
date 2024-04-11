@@ -61,9 +61,10 @@ InputField.propTypes = {
   autoComplete: PropTypes.string,
 };
 
-function FormGeneralInformation({ user }) {
+function FormGeneralInformation({ user, setUser }) {
   function handleChange(e, fieldName) {
     user[fieldName] = e.target.value;
+    setUser({ ...user, fieldName: e.target.value });
   }
 
   return (
@@ -103,13 +104,14 @@ function FormGeneralInformation({ user }) {
 
 FormGeneralInformation.propTypes = {
   user: PropTypes.object,
+  setUser: PropTypes.func,
 };
 
-function FormEducationalBackground({ schools }) {
+function FormEducationalBackground({ setUser }) {
   const [schoolInfo, setSchoolInfo] = useState(SchoolFactory());
 
   function handleAddClick() {
-    schools.push(schoolInfo);
+    setUser(prevState => ({ ...prevState, schools: [...prevState.schools, schoolInfo] }));
     setSchoolInfo(SchoolFactory());
   }
 
@@ -159,15 +161,15 @@ function FormEducationalBackground({ schools }) {
 }
 
 FormEducationalBackground.propTypes = {
-  schools: PropTypes.array,
+  setUser: PropTypes.func,
 };
 
-function FormJobExperience({ experience }) {
+function FormJobExperience({ setUser }) {
   const [experienceInfo, setExperienceInfo] = useState(ExperienceFactory());
   let characterCount = experienceInfo.responsabilities.length || 0;
 
   function handleAddClick() {
-    experience.push(experienceInfo);
+    setUser(prevState => ({ ...prevState, experience: [...prevState.experience, experienceInfo] }));
     setExperienceInfo(ExperienceFactory());
   }
 
@@ -230,7 +232,7 @@ function FormJobExperience({ experience }) {
 }
 
 FormJobExperience.propTypes = {
-  experience: PropTypes.array,
+  setUser: PropTypes.func,
 };
 
 function Section({ name, children }) {
@@ -247,18 +249,18 @@ Section.propTypes = {
   children: PropTypes.object,
 };
 
-export function Form({ user }) {
+export function Form({ user, setUser }) {
   return (
     <form>
       <p>Required fields are marked with an asterisk (*)</p>
       <Section name={"General Information"}>
-        <FormGeneralInformation user={user} />
+        <FormGeneralInformation user={user} setUser={setUser} />
       </Section>
       <Section name={"Educational Background"}>
-        <FormEducationalBackground schools={user.schools} />
+        <FormEducationalBackground setUser={setUser} />
       </Section>
       <Section name={"Job Experience"}>
-        <FormJobExperience experience={user.experience} />
+        <FormJobExperience setUser={setUser} />
       </Section>
     </form>
   );

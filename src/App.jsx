@@ -4,7 +4,8 @@ import { Form } from "./components/form";
 import { User } from "./data/user";
 
 function App() {
-  return <Form user={User} />;
+  const [user, setUser] = useState(User);
+  return <Form user={user} setUser={setUser} />;
 }
 
 export default App;
