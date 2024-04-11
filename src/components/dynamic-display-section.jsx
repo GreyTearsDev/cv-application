@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import Card from "./card";
 
 export default function DynamicDisplaySection({ user, setUser }) {
-  function handleRemoval(key) {
-    setUser(prevUser => ({ ...prevUser, schools: prevUser.schools.filter(s => s.id !== key) }));
+  function handleRemoval(id) {
+    setUser(prevUser => ({ ...prevUser, schools: prevUser.schools.filter(s => s.id !== id) }));
   }
   return (
     <>
@@ -12,6 +12,7 @@ export default function DynamicDisplaySection({ user, setUser }) {
           name={schoolInfo.name}
           roleOrField={schoolInfo.field}
           key={schoolInfo.id}
+          id={schoolInfo.id}
           dateStart={schoolInfo.start}
           dateEnd={schoolInfo.end}
           onClick={handleRemoval}
