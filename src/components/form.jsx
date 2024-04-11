@@ -169,7 +169,7 @@ function FormJobExperience({ setUser }) {
   let characterCount = experienceInfo.responsabilities.length || 0;
 
   function handleAddClick() {
-    setUser(prevState => ({ ...prevState, experience: [...prevState.experience, experienceInfo] }));
+    setUser(prevUser => ({ ...prevUser, experience: [...prevUser.experience, experienceInfo] }));
     setExperienceInfo(ExperienceFactory());
   }
 
