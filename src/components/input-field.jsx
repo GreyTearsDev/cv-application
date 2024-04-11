@@ -7,20 +7,16 @@ export default function InputField(props) {
 
   function handleInputChange(e) {
     const value = e.target.value;
-    setInputValue(prevValue => {
-      prevValue = value;
-      return prevValue;
-    });
+
+    setInputValue(value);
 
     props.requiredField && !value.trim()
-      ? setError(prevError => {
-        prevError = "This field is required";
-        return prevError;
-      })
-      : setError(prevError => {
-        prevError = "";
-        return prevError;
-      });
+      ? setError("This field is required")
+      : setError("");
+
+    if (props.isSubmitted) {
+      props.setIsSubmitted(false);
+    }
   }
 
   return (
@@ -30,7 +26,7 @@ export default function InputField(props) {
         {": "}
         <input
           type={props.type}
-          value={inputValue}
+          value={props.isSubmitted ? "" : inputValue}
           id={props.labelFor}
           name={props.labelFor}
           maxLength={props.type === "tel" ? 10 : 50}
@@ -58,4 +54,6 @@ InputField.propTypes = {
   onChange: PropTypes.func,
   requiredField: PropTypes.bool,
   autoComplete: PropTypes.string,
+  isSubmitted: PropTypes.bool,
+  setIsSubmitted: PropTypes.func,
 };
