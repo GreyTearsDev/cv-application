@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Button from "./button";
 
-export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClick, children }) {
+export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClick, text }) {
   return (
     <div className="card">
       <Button
@@ -20,7 +20,7 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
           To: <span>{dateEnd}</span>
         </p>
       </div>
-      <p>{children}</p>
+      <p>{text}</p>
     </div>
   );
 }
@@ -32,5 +32,5 @@ Card.propTypes = {
   dateStart: PropTypes.string,
   dateEnd: PropTypes.string,
   onClick: PropTypes.func,
-  children: PropTypes.array,
+  text: PropTypes.string,
 };
