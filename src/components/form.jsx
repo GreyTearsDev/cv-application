@@ -21,7 +21,15 @@ function InputField(props) {
     const value = e.target.value;
     setInputValue(value);
 
-    (props.requiredField && !value.trim()) ? setError("This field is required") : setError("");
+    props.requiredField && !value.trim()
+      ? setError(prevError => {
+        prevError = "This field is required";
+        return prevError;
+      })
+      : setError(prevError => {
+        prevError = "";
+        return prevError;
+      });
   }
 
   return (
@@ -268,4 +276,5 @@ export function Form({ user, setUser }) {
 
 Form.propTypes = {
   user: PropTypes.object,
+  setUser: PropTypes.func,
 };
