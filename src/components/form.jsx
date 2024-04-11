@@ -19,7 +19,10 @@ function InputField(props) {
 
   function handleInputChange(e) {
     const value = e.target.value;
-    setInputValue(value);
+    setInputValue(prevValue => {
+      prevValue = value;
+      return prevValue;
+    });
 
     props.requiredField && !value.trim()
       ? setError(prevError => {
