@@ -4,11 +4,11 @@ import Header from "./header";
 
 export default function MainPage({ user, setUser }) {
   return (
-    <>
+    <div>
       <Header user={user} />
       <DynamicDisplaySection arrayName={"schools"} user={user} setUser={setUser} />
       <DynamicDisplaySection arrayName={"experience"} user={user} setUser={setUser} />
-    </>
+    </div>
   );
 }
 
