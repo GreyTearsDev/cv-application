@@ -36,7 +36,7 @@ export default function InputField(props) {
           }}
           autoComplete={props.autoComplete}
         />
-        {error && <p>{error}</p>}
+        {error && <p className="error-message">{error}</p>}
       </label>
     </>
   );
