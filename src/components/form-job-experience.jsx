@@ -80,7 +80,7 @@ export default function FormJobExperience({ setUser }) {
             onChange={(e) => handleChange(e, "responsabilities")}
           >
           </textarea>
-          <div>{characterCount}/300</div>
+          <div className="character-counter">{characterCount}/300</div>
         </label>
       </div>
       <svg
