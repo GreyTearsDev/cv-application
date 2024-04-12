@@ -11,7 +11,7 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
   return (
     <div className="card">
       <svg
-        className="icon"
+        className="icon icon--button"
         xmlns="http://www.w3.org/2000/svg"
         onClick={() => {
           onClick(id);
