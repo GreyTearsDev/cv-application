@@ -22,8 +22,8 @@ export default function InputField(props) {
   return (
     <>
       <label htmlFor={props.labelFor}>
-        {props.requiredField ? "*" + props.labelName : props.labelName}
-        {": "}
+        {props.requiredField ? "* " + props.labelName : props.labelName}
+
         <input
           type={props.type}
           value={props.isSubmitted ? "" : inputValue}
