@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -9,26 +11,209 @@
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 
-  --gap-xsmall: 0.4rem;
-  --gap-small: 0.8rem;
-  --gap-mid: 1.2rem;
-  --gap-large: 1.6rem;
-  --gap-xlarge: 2rem;
+  --gap-xsmall: 0.4em;
+  --gap-small: 0.8em;
+  --gap-mid: 1.2em;
+  --gap-large: 1.6em;
+  --gap-xlarge: 2em;
+
+  --clr-paragraph: #a7a9be;
+  --clr-background: #0f0e17;
+  --clr-headline: #fffffe;
+  --clr-button: #ff8906;
+  --clr-button-text: #fffffe;
+  --clr-form-outline: black;
+  --clr-form-body: #fffffe;
+  --clr-form-highlight: #ff8906;
+  --clr-form-secondary: #f25f4c;
+  --clr-form-ternary: #e53170;
+
+  --fnt-normal: 1rem;
+  --fnt-sub-heading: 1.2rem;
+  --fnt-heading: 2rem;
+
+  --gradient-main: linear-gradient(
+    45deg,
+    hsl(32deg 100% 51%) 0%,
+    hsl(28deg 100% 54%) 11%,
+    hsl(25deg 100% 57%) 22%,
+    hsl(22deg 99% 58%) 33%,
+    hsl(20deg 98% 59%) 44%,
+    hsl(17deg 97% 60%) 56%,
+    hsl(15deg 95% 61%) 67%,
+    hsl(12deg 92% 62%) 78%,
+    hsl(9deg 90% 62%) 89%,
+    hsl(7deg 86% 62%) 100%
+  );
+
+  --shadow-color: 0deg 0% 63%;
+  --shadow-elevation-low: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+  --shadow-elevation-medium: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+  --shadow-elevation-high: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
+    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
+    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
+    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
+    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
+    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
+    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
+
+  --shadow-inset-elevation-low: inset 0.3px 0.5px 0.7px
+      hsl(var(--shadow-color) / 0.34),
+    inset 0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+    inset 1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+  --shadow-inset-elevation-medium: inset 0.3px 0.5px 0.7px
+      hsl(var(--shadow-color) / 0.36),
+    inset 0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    inset 2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    inset 5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+  --shadow-inset-elevation-high: inset 0.3px 0.5px 0.7px
+      hsl(var(--shadow-color) / 0.34),
+    inset 1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.34),
+    inset 2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.34),
+    inset 4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.34),
+    inset 7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.34),
+    inset 11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.34),
+    inset 17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.34),
+    inset 25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
 }
 
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--clr-background);
+  font-family: "Manrope", verdana;
 }
 
 #root {
   display: grid;
-  grid-template-columns: minmax(300px, 35vw) 1fr;
-  padding: var(--gap-xlarge) var(--gap-large);
-  border: 1px solid blue;
+  grid-template-columns: minmax(300px, 20vw) 1fr;
+  padding: 2vh 6vw;
+}
+
+form > p {
+  color: var(--clr-paragraph);
+}
+
+legend {
+  background-color: var(--clr-form-highlight);
+  padding: var(--gap-xsmall) var(--gap-large);
+  font-weight: bold;
+  color: var(--clr-button-text);
+  border-radius: 5px;
+  margin-bottom: var(--gap-small);
+  background-image: var(--gradient-main);
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+fieldset {
+  padding: var(--gap-xsmall) var(--gap-mid);
+  margin-bottom: var(--gap-xlarge);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--clr-form-body);
+}
+
+fieldset legend {
+  text-align: center;
+}
+
+fieldset,
+fieldset > div,
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  position: relative;
+  padding-bottom: var(--gap-small);
+}
+
+input {
+  all: unset;
+  border-radius: 5px;
+  border: 1px solid var(--clr-paragraph);
+  background-color: var(--clr-headline);
+  padding: 0.2em 0.6em;
+  transition: all 100ms ease-in-out;
+  box-shadow: var(--shadow-elevation-low);
+}
+
+input:hover {
+  cursor: auto;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid var(--clr-button);
+}
+
+input[type="date"] {
+  align-self: start;
+}
+input[type="date"]:hover {
+  cursor: pointer;
 }
 
 .icon {
-  max-width: 30px;
+  max-width: 35px;
   height: auto;
+}
+
+.icon--button {
+  transition: all 100ms ease-in-out;
+  fill: var(--clr-form-highlight);
+}
+
+.icon--button:hover {
+  transform: scale(1.25) rotate(90deg);
+  cursor: pointer;
+  fill: var(--clr-form-secondary);
+}
+
+.error-message {
+  align-self: flex-start;
+  margin-top: 0.2em;
+  padding: 0.2em 0.6em;
+  margin: 0;
+  color: var(--clr-form-body);
+  background-color: var(--clr-form-highlight);
+  animation: enter-screen 100ms ease-out;
+}
+
+textarea {
+  border: 1px solid var(--clr-paragraph);
+  padding: 0.2em 0.6em;
+  outline: none;
+  resize: none;
+  overflow: auto;
+  box-shadow: var(--shadow-elevation-low);
+}
+
+textarea::placeholder {
+  font-family: "Manrope", verdana;
+}
+
+.character-counter {
+  align-self: flex-end;
+}
+
+@keyframes enter-screen {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  70% {
+    oopacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }
