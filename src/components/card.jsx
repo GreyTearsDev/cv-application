@@ -1,6 +1,13 @@
 import PropTypes from "prop-types";
+import DateHandler from "../util/date-management";
 
 export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClick, text }) {
+  const { getMonth, getYear } = DateHandler();
+  const startMonth = getMonth(dateStart);
+  const startYear = getYear(dateStart);
+  const endMonth = getMonth(dateEnd);
+  const endYear = getYear(dateEnd);
+
   return (
     <div className="card">
       <svg
@@ -18,10 +25,10 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
       <h4>{roleOrField}</h4>
       <div className="card__date">
         <p>
-          From: <span>{dateStart}</span>
+          From: <span>{`${startMonth} ${startYear}`}</span>
         </p>
         <p>
-          To: <span>{dateEnd}</span>
+          To: <span>{`${endMonth} ${endYear}`}</span>
         </p>
       </div>
       <p>{text}</p>
