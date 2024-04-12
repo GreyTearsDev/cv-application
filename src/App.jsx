@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/main.css";
 import { useState } from "react";
 import Form from "./components/form";
 import MainPage from "./components/main-page";
