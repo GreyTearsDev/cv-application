@@ -23,7 +23,7 @@ export default function MainPage({ user, setUser }) {
       const imgY = 10;
 
       pdf.addImage(imgData, "PNG", imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-      pdf.save(`${user.firstName.toLowerCase()}-${user.lastName.toLowerCase()}'s - cv.pdf`);
+      pdf.save(`${user.firstName.toLowerCase()}-${user.lastName.toLowerCase()}'s-cv.pdf`);
     });
   };
 
