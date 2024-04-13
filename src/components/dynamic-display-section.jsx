@@ -12,8 +12,8 @@ export default function DynamicDisplaySection({ user, setUser, arrayName }) {
       <h2>{IS_SCHOOL ? "Educational Background" : "Professional Experience"}</h2>
       {user[arrayName].map(info => (
         <Card
-          name={IS_SCHOOL ? info.name : info.company}
-          roleOrField={IS_SCHOOL ? info.field : info.role}
+          name={IS_SCHOOL ? info.name : `Company: ${info.company}`}
+          roleOrField={IS_SCHOOL ? info.field : `Role: ${info.role}`}
           key={info.id}
           id={info.id}
           dateStart={info.start}
