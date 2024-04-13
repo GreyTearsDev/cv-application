@@ -27,6 +27,6 @@ export default function Section({ name, children, onClick }) {
 
 Section.propTypes = {
   name: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.element,
   onClick: PropTypes.func,
 };
