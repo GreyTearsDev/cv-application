@@ -1,15 +1,17 @@
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import PropTypes from "prop-types";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import DynamicDisplaySection from "./dynamic-display-section";
 import Header from "./header";
 
 export default function MainPage({ user, setUser }) {
+  const [hideDeleteIcons, setHideDeleteIcons] = useState(false);
   const pdfRef = useRef();
 
   const downloadPDF = () => {
     const input = pdfRef.current;
+    setHideDeleteIcons(true);
 
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
@@ -24,7 +26,7 @@ export default function MainPage({ user, setUser }) {
 
       pdf.addImage(imgData, "PNG", imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save(`${user.firstName.toLowerCase()}-${user.lastName.toLowerCase()}'s-cv.pdf`);
-    });
+    }).then(() => setHideDeleteIcons(false));
   };
 
   return (
@@ -35,8 +37,8 @@ export default function MainPage({ user, setUser }) {
         </button>
         <div ref={pdfRef} className="page-section">
           <Header user={user} />
-          <DynamicDisplaySection arrayName={"schools"} user={user} setUser={setUser} />
-          <DynamicDisplaySection arrayName={"experience"} user={user} setUser={setUser} />
+          <DynamicDisplaySection arrayName={"schools"} user={user} setUser={setUser} hideIcons={hideDeleteIcons} />
+          <DynamicDisplaySection arrayName={"experience"} user={user} setUser={setUser} hideIcons={hideDeleteIcons} />
         </div>
       </div>
     </>

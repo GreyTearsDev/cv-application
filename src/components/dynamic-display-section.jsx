@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Card from "./card";
 
-export default function DynamicDisplaySection({ user, setUser, arrayName }) {
+export default function DynamicDisplaySection({ user, setUser, arrayName, hideIcons }) {
   const IS_SCHOOL = arrayName === "schools";
 
   function handleRemoval(id) {
@@ -20,6 +20,7 @@ export default function DynamicDisplaySection({ user, setUser, arrayName }) {
           dateEnd={info.end}
           onClick={handleRemoval}
           text={!IS_SCHOOL ? info.responsabilities : ""}
+          hideIcons={hideIcons}
         />
       ))}
     </div>
@@ -30,4 +31,5 @@ DynamicDisplaySection.propTypes = {
   user: PropTypes.object,
   setUser: PropTypes.func,
   arrayName: PropTypes.string,
+  hideIcons: PropTypes.bool,
 };

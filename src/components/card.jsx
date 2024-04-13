@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import DateHandler from "../util/date-management";
 
-export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClick, text }) {
+export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClick, text, hideIcons }) {
   const { getMonth, getYear } = DateHandler();
   const startMonth = getMonth(dateStart);
   const startYear = getYear(dateStart);
@@ -10,16 +10,20 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
 
   return (
     <div className="card">
-      <svg
-        className="icon icon--button"
-        xmlns="http://www.w3.org/2000/svg"
-        onClick={() => {
-          onClick(id);
-        }}
-        viewBox="0 0 24 24"
-      >
-        <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
-      </svg>
+      {!hideIcons
+        ? (
+          <svg
+            className="icon icon--button"
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={() => {
+              onClick(id);
+            }}
+            viewBox="0 0 24 24"
+          >
+            <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
+          </svg>
+        )
+        : ""}
       <h3>{name}</h3>
       <h4>{roleOrField}</h4>
       <div className="card__date">
@@ -43,4 +47,5 @@ Card.propTypes = {
   dateEnd: PropTypes.string,
   onClick: PropTypes.func,
   text: PropTypes.string,
+  hideIcons: PropTypes.bool,
 };
