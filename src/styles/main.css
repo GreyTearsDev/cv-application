@@ -77,6 +77,7 @@ h2,
 h3,
 h4,
 .card p {
+  color: var(--clr-background);
   margin: 0;
 }
 
@@ -132,6 +133,7 @@ label {
 label {
   position: relative;
   padding-bottom: var(--gap-small);
+  color: var(--clr-background);
 }
 
 input {
@@ -142,6 +144,7 @@ input {
   padding: 0.2em 0.6em;
   transition: all 100ms ease-in-out;
   box-shadow: var(--shadow-elevation-low);
+  color: var(--clr-background);
 }
 
 input:hover {
@@ -211,6 +214,9 @@ textarea {
   resize: none;
   overflow: auto;
   box-shadow: var(--shadow-elevation-low);
+
+  color: var(--clr-paragraph);
+  background-color: var(--clr-form-body);
 }
 
 textarea::placeholder {
