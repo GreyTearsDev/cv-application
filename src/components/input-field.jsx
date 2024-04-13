@@ -35,7 +35,7 @@ export default function InputField(props) {
           value={props.isSubmitted ? "" : inputValue}
           id={props.labelFor}
           name={props.labelFor}
-          maxLength={props.type === "tel" ? 10 : 50}
+          maxLength={props.type === "tel" ? 20 : 50}
           onChange={(e) => {
             handleInputChange(e);
             props.onChange(e);
