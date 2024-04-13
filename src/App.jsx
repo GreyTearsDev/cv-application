@@ -10,6 +10,12 @@ function App() {
     <div className="app container">
       <Form user={user} setUser={setUser} />
       <MainPage user={user} setUser={setUser} />
+      <p className="credits">
+        Created by{" "}
+        <a src="https://github.com/GreyTearsDev">
+          Tirso Samalungo <span>(GreyTearsDev)</span>
+        </a>
+      </p>
     </div>
   );
 }
