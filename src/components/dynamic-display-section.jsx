@@ -8,7 +8,7 @@ export default function DynamicDisplaySection({ user, setUser, arrayName }) {
     setUser(prevUser => ({ ...prevUser, [arrayName]: prevUser[arrayName].filter(s => s.id !== id) }));
   }
   return (
-    <>
+    <div className={`section section--${IS_SCHOOL ? "education" : "experience"}`}>
       <h2>{IS_SCHOOL ? "Educational Background" : "Professional Experience"}</h2>
       {user[arrayName].map(info => (
         <Card
@@ -22,7 +22,7 @@ export default function DynamicDisplaySection({ user, setUser, arrayName }) {
           text={!IS_SCHOOL ? info.responsabilities : ""}
         />
       ))}
-    </>
+    </div>
   );
 }
 

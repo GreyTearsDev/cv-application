@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export default function Header({ user }) {
   return (
-    <div className={"section header"}>
+    <div className="section section--header">
       <h1>{`${user.firstName} ${user.lastName}`}</h1>
       <div>
         <div className="flex-row">
