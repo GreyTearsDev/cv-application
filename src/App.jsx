@@ -7,10 +7,10 @@ import { User } from "./data/user";
 function App() {
   const [user, setUser] = useState(User);
   return (
-    <>
+    <div className="app container">
       <Form user={user} setUser={setUser} />
       <MainPage user={user} setUser={setUser} />
-    </>
+    </div>
   );
 }
 
