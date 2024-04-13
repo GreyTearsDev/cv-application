@@ -122,7 +122,7 @@ legend:hover {
 }
 
 fieldset {
-  padding: var(--gap-xsmall) var(--gap-mid);
+  padding: var(--gap-xsmall) var(--gap-large) var(--gap-mid);
   margin-bottom: var(--gap-xlarge);
   border: none;
   border-radius: 5px;
