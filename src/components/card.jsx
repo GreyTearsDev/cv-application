@@ -25,10 +25,10 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
       <h4>{roleOrField}</h4>
       <div className="card__date">
         <p>
-          From: <span>{`${startMonth} ${startYear}`}</span>
+          From: {`${startMonth} ${startYear}`}
         </p>
         <p>
-          To: <span>{`${endMonth} ${endYear}`}</span>
+          To: {`${endMonth} ${endYear}`}
         </p>
       </div>
       <p>{text}</p>
