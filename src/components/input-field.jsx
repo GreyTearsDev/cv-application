@@ -7,12 +7,15 @@ export default function InputField(props) {
 
   function handleInputChange(e) {
     const value = e.target.value;
-
     setInputValue(value);
 
-    props.requiredField && !value.trim()
-      ? setError("This field is required")
-      : setError("");
+    if (props.requiredField && !value.trim()) {
+      setError("This field is required");
+    } else {
+      setError("");
+    }
+
+    props.validateInfo();
 
     if (props.isSubmitted) {
       props.setIsSubmitted(false);
@@ -56,4 +59,6 @@ InputField.propTypes = {
   autoComplete: PropTypes.string,
   isSubmitted: PropTypes.bool,
   setIsSubmitted: PropTypes.func,
+  infoIsValid: PropTypes.bool,
+  validateInfo: PropTypes.func,
 };

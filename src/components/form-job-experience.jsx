@@ -7,13 +7,21 @@ export default function FormJobExperience({ setUser }) {
   const [experienceInfo, setExperienceInfo] = useState(ExperienceFactory());
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [resetKey, setResetKey] = useState(0);
+  const [infoIsValid, setInfoIsValid] = useState(false);
   let characterCount = experienceInfo.responsabilities.length || 0;
 
   function handleAddClick() {
+    if (!infoIsValid) return;
+
     setUser(prevUser => ({ ...prevUser, experience: [...prevUser.experience, experienceInfo] }));
     setIsSubmitted(true);
     setExperienceInfo(ExperienceFactory());
     setResetKey(prevKey => prevKey + 1);
+  }
+
+  function validateInfo() {
+    const isValid = experienceInfo.company.trim() !== "" && experienceInfo.role.trim() !== "";
+    setInfoIsValid(isValid);
   }
 
   function handleChange(e, fieldName) {
@@ -34,6 +42,8 @@ export default function FormJobExperience({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
+          infoIsValid={infoIsValid}
+          validateInfo={validateInfo}
         />
         <InputField
           key={`role-title${resetKey}`}
@@ -45,6 +55,8 @@ export default function FormJobExperience({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
+          infoIsValid={infoIsValid}
+          validateInfo={validateInfo}
         />
         <InputField
           key={`from${resetKey}`}

@@ -7,12 +7,20 @@ export default function FormEducationalBackground({ setUser }) {
   const [schoolInfo, setSchoolInfo] = useState(SchoolFactory());
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [resetKey, setResetKey] = useState(0);
+  const [infoIsValid, setInfoIsValid] = useState(false);
 
   function handleAddClick() {
+    if (!infoIsValid) return;
+
     setUser(prevState => ({ ...prevState, schools: [...prevState.schools, schoolInfo] }));
     setIsSubmitted(true);
     setSchoolInfo(SchoolFactory());
     setResetKey(prevKey => prevKey + 1);
+  }
+
+  function validateInfo() {
+    const isValid = schoolInfo.name.trim() !== "" && schoolInfo.field.trim() !== "";
+    setInfoIsValid(isValid);
   }
 
   function handleChange(e, fieldName) {
@@ -32,6 +40,8 @@ export default function FormEducationalBackground({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
+          infoIsValid={infoIsValid}
+          validateInfo={validateInfo}
         />
         <InputField
           key={`field-of-study${resetKey}`}
@@ -43,6 +53,8 @@ export default function FormEducationalBackground({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
+          infoIsValid={infoIsValid}
+          validateInfo={validateInfo}
         />
         <InputField
           key={`from${resetKey}`}
@@ -54,6 +66,7 @@ export default function FormEducationalBackground({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
+          infoIsValid={infoIsValid}
         />
         <InputField
           key={`to${resetKey}`}
@@ -65,6 +78,7 @@ export default function FormEducationalBackground({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
+          infoIsValid={infoIsValid}
         />
       </div>
       <svg
