@@ -5,8 +5,8 @@ export default function Section({ name, children, onClick }) {
   const [showChildren, setShowChildren] = useState(false);
 
   return (
-    <fieldset onClick={() => onClick(showChildren, setShowChildren)}>
-      <legend>
+    <fieldset>
+      <legend onClick={() => onClick(showChildren, setShowChildren)}>
         {name}
         {showChildren
           ? (
