@@ -31,7 +31,7 @@ export default function MainPage({ user, setUser }) {
 
   return (
     <>
-      <div className="main-section">
+      <main className="main-section">
         <button className="btn__download" onClick={downloadPDF}>
           DOWNLOAD PDF
         </button>
@@ -40,7 +40,7 @@ export default function MainPage({ user, setUser }) {
           <DynamicDisplaySection arrayName={"schools"} user={user} setUser={setUser} hideIcons={hideDeleteIcons} />
           <DynamicDisplaySection arrayName={"experience"} user={user} setUser={setUser} hideIcons={hideDeleteIcons} />
         </div>
-      </div>
+      </main>
     </>
   );
 }
