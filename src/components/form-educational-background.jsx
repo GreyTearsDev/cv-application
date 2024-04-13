@@ -23,13 +23,10 @@ export default function FormEducationalBackground({ setUser }) {
     setResetKey(prevKey => prevKey + 1);
   }
 
-  function validateInfo(inputValue, valueSetter) {
-    valueSetter(inputValue.trim() !== "");
-  }
+  const validateInfo = (inputValue, valueSetter) => valueSetter(inputValue.trim() !== "");
 
-  function handleChange(e, fieldName) {
+  const handleChange = (e, fieldName) =>
     setSchoolInfo(prevSchoolInfo => ({ ...prevSchoolInfo, [fieldName]: e.target.value }));
-  }
 
   return (
     <>

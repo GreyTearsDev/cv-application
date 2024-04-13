@@ -24,14 +24,12 @@ export default function FormJobExperience({ setUser }) {
     setResetKey(prevKey => prevKey + 1);
   }
 
-  function validateInfo(inputValue, valueSetter) {
-    valueSetter(inputValue.trim() !== "");
-  }
+  const validateInfo = (inputValue, valueSetter) => valueSetter(inputValue.trim() !== "");
 
-  function handleChange(e, fieldName) {
+  const handleChange = (e, fieldName) => {
     setExperienceInfo(prevExperienceInfo => ({ ...prevExperienceInfo, [fieldName]: e.target.value }));
     characterCount = experienceInfo.responsabilities.length;
-  }
+  };
 
   return (
     <>
