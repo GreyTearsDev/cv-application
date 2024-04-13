@@ -92,7 +92,7 @@ body {
 
 #root {
   display: grid;
-  grid-template-columns: minmax(300px, 20vw) 1fr;
+  grid-template-columns: minmax(340px, 20vw) 1fr;
   padding: 2vh 6vw;
 }
 
@@ -109,6 +109,15 @@ legend {
   margin-bottom: var(--gap-small);
   background-image: var(--gradient-main);
   box-shadow: var(--shadow-elevation-medium);
+  display: grid;
+  grid-template-columns: 1fr 10%;
+  width: 80%;
+  transition: all 120ms ease-in-out;
+}
+
+legend:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 fieldset {
@@ -167,7 +176,7 @@ input[type="date"]:hover {
 }
 
 .icon--button {
-  transition: all 100ms ease-in-out;
+  transition: all 120ms ease-in-out;
   fill: var(--clr-form-highlight);
 }
 
