@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 export default function InputField(props) {
+  const ERROR_MESSAGE = "This field is required";
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
 
@@ -10,12 +11,14 @@ export default function InputField(props) {
     setInputValue(value);
 
     if (props.requiredField && !value.trim()) {
-      setError("This field is required");
+      setError(ERROR_MESSAGE);
     } else {
       setError("");
     }
 
-    props.validateInfo();
+    if (props.validateInfo) {
+      props.validateInfo(value, props.valueSetter);
+    }
 
     if (props.isSubmitted) {
       props.setIsSubmitted(false);
@@ -40,6 +43,9 @@ export default function InputField(props) {
           autoComplete={props.autoComplete}
         />
         {error && <p className="error-message">{error}</p>}
+        {(!error && !props.infoIsValid && props.requiredField && props.attemptedToSubmit) && (
+          <p className="error-message">{ERROR_MESSAGE}</p>
+        )}
       </label>
     </>
   );
@@ -61,4 +67,6 @@ InputField.propTypes = {
   setIsSubmitted: PropTypes.func,
   infoIsValid: PropTypes.bool,
   validateInfo: PropTypes.func,
+  attemptedToSubmit: PropTypes.bool,
+  valueSetter: PropTypes.func,
 };
