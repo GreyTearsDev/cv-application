@@ -88,6 +88,7 @@ body {
   padding: 0;
   background-color: var(--clr-background);
   font-family: "Manrope", verdana;
+  word-spacing: 0.1em;
 }
 
 h1,
@@ -100,7 +101,7 @@ h4,
 
 #root {
   display: grid;
-  grid-template-columns: minmax(340px, 20vw) 1fr;
+  grid-template-columns: minmax(350px, 20vw) 1fr;
   gap: 6vw;
   padding: 6vh 6vw;
 }
@@ -296,4 +297,26 @@ textarea::placeholder {
 
 .flex-row {
   display: flex;
+}
+
+.btn__download {
+  appearance: none;
+  outline: none;
+  border: none;
+  padding: var(--gap-mid) var(--gap-xlarge);
+  display: flex;
+  position: absolute;
+  top: 35px;
+  right: 6vw;
+  color: var(--clr-button-text);
+  background-image: var(--gradient-main);
+  font-weight: bold;
+  border-radius: 10px;
+  transition: all 120ms ease-in-out;
+}
+
+.btn__download:hover {
+  transform: scale(1.15);
+  cursor: pointer;
+  font-weight: bolder;
 }
