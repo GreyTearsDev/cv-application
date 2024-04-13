@@ -7,7 +7,6 @@ export default function Section({ name, children, onClick }) {
   return (
     <fieldset>
       <legend onClick={() => onClick(showChildren, setShowChildren)}>
-        {name}
         {showChildren
           ? (
             <svg className="icon icon--arrow icon--arrow-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -21,6 +20,7 @@ export default function Section({ name, children, onClick }) {
               <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
             </svg>
           )}
+        {name}
       </legend>
       {showChildren ? children : ""}
     </fieldset>
