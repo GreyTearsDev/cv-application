@@ -20,7 +20,7 @@ export default function MainPage({ user, setUser }) {
       const imgHeight = canvas.height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 30;
+      const imgY = 10;
 
       pdf.addImage(imgData, "PNG", imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save(`${user.firstName.toLowerCase()}-${user.lastName.toLowerCase()}'s - cv.pdf`);
@@ -29,11 +29,11 @@ export default function MainPage({ user, setUser }) {
 
   return (
     <>
-      <button className="btn__download" onClick={downloadPDF}>
-        DOWNLOAD PDF
-      </button>
-      <div ref={pdfRef}>
-        <div className="main-section">
+      <div className="main-section">
+        <button className="btn__download" onClick={downloadPDF}>
+          DOWNLOAD PDF
+        </button>
+        <div ref={pdfRef} className="page-section">
           <Header user={user} />
           <DynamicDisplaySection arrayName={"schools"} user={user} setUser={setUser} />
           <DynamicDisplaySection arrayName={"experience"} user={user} setUser={setUser} />

@@ -263,10 +263,11 @@ textarea::placeholder {
 .section {
   margin-bottom: var(--gap-xlarge);
 }
-
 .main-section {
-  background-color: var(--clr-form-body);
   margin-top: 75px;
+}
+.page-section {
+  background-color: var(--clr-form-body);
   padding: 4vh 4vw;
 }
 
