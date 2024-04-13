@@ -90,10 +90,19 @@ body {
   font-family: "Manrope", verdana;
 }
 
+h1,
+h2,
+h3,
+h4,
+.card p {
+  margin: 0;
+}
+
 #root {
   display: grid;
   grid-template-columns: minmax(340px, 20vw) 1fr;
-  padding: 2vh 6vw;
+  gap: 6vw;
+  padding: 6vh 6vw;
 }
 
 form > p {
@@ -168,13 +177,17 @@ input[type="date"]:hover {
 }
 
 .icon {
-  max-width: 35px;
+  max-width: 1.6rem;
   height: auto;
+  fill: var(--clr-form-highlight);
+}
+
+legend .icon {
+  fill: var(--clr-form-body);
 }
 
 .icon--button {
   transition: all 120ms ease-in-out;
-  fill: var(--clr-form-highlight);
 }
 
 .icon--button:hover {
@@ -222,4 +235,65 @@ textarea::placeholder {
     opacity: 1;
     transform: translateX(0%);
   }
+}
+
+/*========MAIN SECTION STYLE==========*/
+.section--education,
+.section--experience {
+  border-top: 2px solid black;
+}
+.section--header {
+  padding: 1rem 0 2rem;
+}
+
+.section--header svg {
+  margin-right: var(--gap-xsmall);
+}
+
+.section--header h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.1em;
+}
+
+.section--header h2 {
+  font-size: 1.2em;
+}
+
+.section {
+  margin-bottom: var(--gap-xlarge);
+}
+
+.main-section {
+  background-color: var(--clr-form-body);
+  margin-top: 75px;
+  padding: 4vh 4vw;
+}
+
+.card {
+  margin-top: var(--gap-small);
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-left: var(--gap-mid);
+}
+
+.card__date {
+  max-width: 40%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: var(--gap-small);
+}
+
+.card h4,
+.card h3 {
+  margin-top: 0.2vh;
+}
+
+.card svg {
+  position: absolute;
+  right: var(--gap-large);
+  top: var(--gap-mid);
+}
+
+.flex-row {
+  display: flex;
 }
