@@ -10,18 +10,20 @@ export default function Form({ user, setUser }) {
   };
 
   return (
-    <form>
-      <p>Required fields are marked with an asterisk (*)</p>
-      <Section onClick={toggleVisibility} name={"General Information"}>
-        <FormGeneralInformation user={user} setUser={setUser} />
-      </Section>
-      <Section onClick={toggleVisibility} name={"Educational Background"}>
-        <FormEducationalBackground setUser={setUser} />
-      </Section>
-      <Section onClick={toggleVisibility} name={"Job Experience"}>
-        <FormJobExperience setUser={setUser} />
-      </Section>
-    </form>
+    <aside>
+      <form>
+        <p>Required fields are marked with an asterisk (*)</p>
+        <Section onClick={toggleVisibility} name={"General Information"}>
+          <FormGeneralInformation user={user} setUser={setUser} />
+        </Section>
+        <Section onClick={toggleVisibility} name={"Educational Background"}>
+          <FormEducationalBackground setUser={setUser} />
+        </Section>
+        <Section onClick={toggleVisibility} name={"Job Experience"}>
+          <FormJobExperience setUser={setUser} />
+        </Section>
+      </form>
+    </aside>
   );
 }
 
