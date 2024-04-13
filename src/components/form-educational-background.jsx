@@ -7,20 +7,24 @@ export default function FormEducationalBackground({ setUser }) {
   const [schoolInfo, setSchoolInfo] = useState(SchoolFactory());
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [resetKey, setResetKey] = useState(0);
-  const [infoIsValid, setInfoIsValid] = useState(false);
+  const [nameIsValid, setNameIsValid] = useState(false);
+  const [fieldIsValid, setFieldIsValid] = useState(false);
+  const [attemptedToSubmit, setAttemptedToSubmit] = useState(false);
 
   function handleAddClick() {
-    if (!infoIsValid) return;
+    if (!nameIsValid || !fieldIsValid) return setAttemptedToSubmit(true);
 
     setUser(prevState => ({ ...prevState, schools: [...prevState.schools, schoolInfo] }));
     setIsSubmitted(true);
+    setNameIsValid(false);
+    setFieldIsValid(false);
+    setAttemptedToSubmit(false);
     setSchoolInfo(SchoolFactory());
     setResetKey(prevKey => prevKey + 1);
   }
 
-  function validateInfo() {
-    const isValid = schoolInfo.name.trim() !== "" && schoolInfo.field.trim() !== "";
-    setInfoIsValid(isValid);
+  function validateInfo(inputValue, valueSetter) {
+    valueSetter(inputValue.trim() !== "");
   }
 
   function handleChange(e, fieldName) {
@@ -40,8 +44,10 @@ export default function FormEducationalBackground({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
-          infoIsValid={infoIsValid}
+          infoIsValid={nameIsValid}
+          valueSetter={setNameIsValid}
           validateInfo={validateInfo}
+          attemptedToSubmit={attemptedToSubmit}
         />
         <InputField
           key={`field-of-study${resetKey}`}
@@ -53,8 +59,10 @@ export default function FormEducationalBackground({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
-          infoIsValid={infoIsValid}
+          infoIsValid={fieldIsValid}
+          valueSetter={setFieldIsValid}
           validateInfo={validateInfo}
+          attemptedToSubmit={attemptedToSubmit}
         />
         <InputField
           key={`from${resetKey}`}
@@ -66,7 +74,6 @@ export default function FormEducationalBackground({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
-          infoIsValid={infoIsValid}
         />
         <InputField
           key={`to${resetKey}`}
@@ -78,7 +85,6 @@ export default function FormEducationalBackground({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
-          infoIsValid={infoIsValid}
         />
       </div>
       <svg

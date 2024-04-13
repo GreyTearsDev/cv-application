@@ -7,21 +7,25 @@ export default function FormJobExperience({ setUser }) {
   const [experienceInfo, setExperienceInfo] = useState(ExperienceFactory());
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [resetKey, setResetKey] = useState(0);
-  const [infoIsValid, setInfoIsValid] = useState(false);
+  const [companyNameIsValid, setCompanyNameIsValid] = useState(false);
+  const [roleIsValid, setRoleIsValid] = useState(false);
+  const [attemptedToSubmit, setAttemptedToSubmit] = useState(false);
   let characterCount = experienceInfo.responsabilities.length || 0;
 
   function handleAddClick() {
-    if (!infoIsValid) return;
+    if (!companyNameIsValid || !roleIsValid) return setAttemptedToSubmit(true);
 
     setUser(prevUser => ({ ...prevUser, experience: [...prevUser.experience, experienceInfo] }));
     setIsSubmitted(true);
+    setCompanyNameIsValid(false);
+    setRoleIsValid(false);
+    setAttemptedToSubmit(false);
     setExperienceInfo(ExperienceFactory());
     setResetKey(prevKey => prevKey + 1);
   }
 
-  function validateInfo() {
-    const isValid = experienceInfo.company.trim() !== "" && experienceInfo.role.trim() !== "";
-    setInfoIsValid(isValid);
+  function validateInfo(inputValue, valueSetter) {
+    valueSetter(inputValue.trim() !== "");
   }
 
   function handleChange(e, fieldName) {
@@ -42,8 +46,10 @@ export default function FormJobExperience({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
-          infoIsValid={infoIsValid}
+          infoIsValid={companyNameIsValid}
+          valueSetter={setCompanyNameIsValid}
           validateInfo={validateInfo}
+          attemptedToSubmit={attemptedToSubmit}
         />
         <InputField
           key={`role-title${resetKey}`}
@@ -55,8 +61,10 @@ export default function FormJobExperience({ setUser }) {
           }}
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
-          infoIsValid={infoIsValid}
+          infoIsValid={roleIsValid}
+          valueSetter={setRoleIsValid}
           validateInfo={validateInfo}
+          attemptedToSubmit={attemptedToSubmit}
         />
         <InputField
           key={`from${resetKey}`}
