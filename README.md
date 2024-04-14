@@ -6,7 +6,7 @@ A beautiful, responsive, accessible and performant app build in ReactJS
 
 ## Technoloogies used
 
-<p align="center">
+<p>
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=css,html,javascript,react,vite,git,vercel" />
   </a>
