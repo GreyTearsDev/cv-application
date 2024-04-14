@@ -1,12 +1,20 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export default function Section({ name, children, onClick }) {
+export default function Section({ name, children }) {
   const [showChildren, setShowChildren] = useState(false);
+
+  const toggleVisibility = () => {
+    setShowChildren(!showChildren);
+  };
 
   return (
     <fieldset>
-      <legend onClick={() => onClick(showChildren, setShowChildren)}>
+      <button
+        className="btn btn__form__info"
+        type="button"
+        onClick={() => toggleVisibility(showChildren, setShowChildren)}
+      >
         {showChildren
           ? (
             <svg className="icon icon--arrow icon--arrow-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -19,7 +27,7 @@ export default function Section({ name, children, onClick }) {
             </svg>
           )}
         {name}
-      </legend>
+      </button>
       {showChildren ? children : ""}
     </fieldset>
   );
@@ -28,5 +36,4 @@ export default function Section({ name, children, onClick }) {
 Section.propTypes = {
   name: PropTypes.string,
   children: PropTypes.element,
-  onClick: PropTypes.func,
 };
