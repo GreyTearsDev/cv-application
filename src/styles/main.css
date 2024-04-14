@@ -310,6 +310,10 @@ textarea::placeholder {
   font-weight: bolder;
 }
 
+.btn:active {
+  transform: scale(0.97);
+}
+
 .btn:focus {
   outline: 2px solid var(--clr-form-ternary);
   outline-offset: -2px;
