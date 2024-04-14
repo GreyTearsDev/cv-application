@@ -22,6 +22,11 @@
   --gap-large: 1.6em;
   --gap-xlarge: 2em;
 
+  --fs-xl: clamp(1.2rem, 3vw, 2.2rem);
+  --fs-l: clamp(1rem, 1.4vw, 1.2rem);
+  --fs-m: clamp(0.8rem, 1vw, 0.8rem);
+  --fs-s: clamp(0.6rem, 0.8vw, 0.6rem);
+
   --clr-paragraph: #a7a9be;
   --clr-background: #0f0e17;
   --clr-headline: #fffffe;
@@ -81,7 +86,7 @@ body {
 .app {
   display: grid;
   grid-template-columns: minmax(350px, 20vw) 1fr;
-  gap: 6vw;
+  gap: 4vw;
   padding: 6vh 6vw;
 }
 
@@ -108,6 +113,7 @@ label {
   position: relative;
   padding-bottom: var(--gap-small);
   color: var(--clr-background);
+  font-size: var(--fs-m);
 }
 
 input {
@@ -137,7 +143,7 @@ input[type="date"]:hover {
 }
 
 svg {
-  max-width: 1.6rem;
+  max-width: clamp(10px, 1.5vw, 22px);
   height: auto;
   fill: var(--clr-form-highlight);
 }
@@ -208,25 +214,34 @@ textarea::placeholder {
 
 /*========MAIN SECTION STYLE==========*/
 
-.section--education,
-.section--experience {
-  border-top: 2px solid black;
+.title--xlarge {
+  font-size: var(--fs-xl);
 }
+
+.title--large {
+  font-size: var(--fs-l);
+}
+
+.title--mid {
+  font-size: var(--fs-m);
+}
+
+.title--small,
+.card p {
+  font-size: var(--fs-s);
+}
+
 .section--header {
   padding: 1rem 0 2rem;
 }
 
+.section--education,
+.section--experience {
+  border-top: 2px solid black;
+}
+
 .section--header svg {
   margin-right: var(--gap-xsmall);
-}
-
-.section--header h1 {
-  font-size: 2.2em;
-  margin-bottom: 0.1em;
-}
-
-.section--header h2 {
-  font-size: 1.2em;
 }
 
 .section {
@@ -286,6 +301,7 @@ textarea::placeholder {
   align-self: center;
   text-align: center;
   padding: var(--gap-small) var(--gap-large);
+  font-size: var(--fs-m);
 }
 
 .btn:hover {
@@ -305,7 +321,7 @@ textarea::placeholder {
   transition: transform 120ms ease-in-out;
   display: grid;
   align-items: center;
-  grid-template-columns: 10% 1fr;
+  grid-template-columns: 7% 1fr;
 }
 
 .btn__add {
@@ -358,51 +374,15 @@ textarea::placeholder {
     max-width: 1024px;
   }
 
-  form p {
-    font-size: 0.8em;
-  }
-
   .btn__download {
     transform: scale(0.95);
-  }
-
-  form p {
-    font-size: 0.8em;
-  }
-
-  .app {
-    grid-template-columns: minmax(200px, 15vw) 1fr;
-    grid-template-rows: 1fr 20px;
-    gap: 6vw;
-  }
-
-  .card svg {
-    right: -30px;
-  }
-  .btn__form__info {
-    font-size: 0.8em;
-  }
-  label {
-    font-size: 0.9em;
   }
 
   .section--header {
     padding-bottom: 0;
     margin-bottom: 30px;
   }
-  .section h1 {
-    font-size: 1.8em;
-  }
-  .section h2 {
-    font-size: 1em;
-  }
-  .card h3 {
-    font-size: 0.8em;
-  }
-  .card h4,
-  .card p {
-    font-size: 0.6em;
-  }
+
   .card__date {
     min-width: fit-content;
   }
@@ -414,26 +394,15 @@ textarea::placeholder {
     max-width: 768px;
   }
 
-  form p {
-    font-size: 0.7em;
+  .app {
+    grid-template-columns: minmax(250px, 20vw) 1fr;
+    padding: 6vh 0;
   }
 
   .btn__download {
     transform: scale(0.9);
   }
 
-  .btn__form__info {
-    font-size: 0.7em;
-  }
-  label {
-    font-size: 0.8em;
-  }
-  .card svg {
-    right: -25px;
-  }
-  .app {
-    grid-template-columns: minmax(100px, 250px) 1fr;
-  }
   textarea {
     max-width: 180px;
   }
@@ -441,18 +410,12 @@ textarea::placeholder {
     padding-bottom: 0;
     margin-bottom: 20px;
   }
-  .section h1 {
-    font-size: 1.4em;
+
+  .page-section {
+    margin-top: 22px;
   }
-  .section h2 {
-    font-size: 0.8em;
-  }
-  .card h3 {
-    font-size: 0.8em;
-  }
-  .card h4,
-  .card p {
-    font-size: 0.6em;
+  .btn__form__info {
+    font-size: var(--fs-s);
   }
 }
 
@@ -464,22 +427,6 @@ textarea::placeholder {
 
   .btn__download {
     transform: scale(0.85);
-  }
-
-  label {
-    font-size: 0.6em;
-  }
-
-  .card svg {
-    right: -20px;
-  }
-
-  .app {
-    grid-template-columns: minmax(100px, 200px) 1fr;
-  }
-
-  .btn__form__info {
-    font-size: 0.5em;
   }
 
   fieldset {
@@ -504,18 +451,8 @@ textarea::placeholder {
     padding-bottom: 0;
     margin-bottom: 20px;
   }
-  .section h1 {
-    font-size: 1.2em;
-  }
-  .section h2 {
-    font-size: 0.6em;
-  }
-  .card h3 {
-    font-size: 0.6em;
-  }
-  .card h4,
-  .card p {
-    font-size: 0.4em;
+  .btn__form__info {
+    padding: var(--gap-small);
   }
 }
 
@@ -523,40 +460,30 @@ textarea::placeholder {
 @media (max-width: 640px) {
   .container {
     width: 100%;
+    padding: 0;
+  }
+
+  .container,
+  .main-section {
     display: flex;
     flex-direction: column;
-    padding: 0;
   }
 
   textarea {
     max-width: 405px;
   }
 
-  fieldset .icon {
-    max-width: 2.6em;
-  }
-
   form p {
-    font-size: 1.4em;
     margin-bottom: 20px;
     text-align: center;
   }
 
-  .btn__form__info,
-  .btn__download {
-    font-size: 1.1em;
-  }
-
   label {
     top: 0;
-    font-size: 1.2em;
-  }
-  .icon {
-    max-width: 1.4em;
   }
 
   form {
-    padding: 0 10vw;
+    padding: 0 25vw;
     margin-top: 60px;
   }
 
@@ -567,11 +494,15 @@ textarea::placeholder {
   .main-section {
     margin-top: 0px;
     padding: 0 10vw;
+    display: flex;
   }
   .btn__download {
-    margin: 0 auto 20px auto;
+    align-self: center;
     position: relative;
     top: 0;
+  }
+  .btn__form__info {
+    padding: var(--gap-mid) var(--gap-small);
   }
 }
 
@@ -588,30 +519,16 @@ textarea::placeholder {
     max-width: 350px;
   }
 
-  fieldset .icon {
-    max-width: 2.6em;
-  }
-
   form p {
-    font-size: 1.2em;
     margin-bottom: 20px;
-  }
-
-  .btn__form__info,
-  .btn__download {
-    font-size: 1.1em;
   }
 
   label {
     top: 0;
-    font-size: 1em;
-  }
-  .icon {
-    max-width: 1.4em;
   }
 
   form {
-    padding: 0 10vw;
+    padding: 0 20vw;
     margin-top: 60px;
   }
 
@@ -623,6 +540,7 @@ textarea::placeholder {
     margin-top: 0px;
     padding: 0 10vw;
   }
+
   .btn__download {
     margin-left: auto;
     margin-right: auto;
