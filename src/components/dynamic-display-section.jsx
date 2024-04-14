@@ -9,10 +9,10 @@ export default function DynamicDisplaySection({ user, setUser, arrayName, hideIc
   }
   return (
     <div className={`section section--${IS_SCHOOL ? "education" : "experience"}`}>
-      <h2>{IS_SCHOOL ? "Educational Background" : "Professional Experience"}</h2>
+      <h2 className="title title--large">{IS_SCHOOL ? "Educational Background" : "Professional Experience"}</h2>
       {user[arrayName].map(info => (
         <Card
-          name={IS_SCHOOL ? info.name : `Company: ${info.company}`}
+          name={IS_SCHOOL ? info.name : info.company}
           roleOrField={IS_SCHOOL ? info.field : `Role: ${info.role}`}
           key={info.id}
           id={info.id}
