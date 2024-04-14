@@ -295,6 +295,17 @@ textarea::placeholder {
   padding: var(--gap-small) var(--gap-large);
 }
 
+.btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.btn:focus {
+  outline: 2px solid var(--clr-form-ternary);
+  outline-offset: -2px;
+}
+
 .btn__form__info {
   margin: var(--gap-small) 0 var(--gap-large);
   width: 80%;
@@ -330,12 +341,6 @@ textarea::placeholder {
   top: 35px;
   right: 0;
   box-shadow: none;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-  font-weight: bolder;
 }
 
 .container {
