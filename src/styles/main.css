@@ -24,8 +24,8 @@
 
   --fs-xl: clamp(1.2rem, 3vw, 2.2rem);
   --fs-l: clamp(1rem, 1.4vw, 1.2rem);
-  --fs-m: clamp(0.8rem, 1vw, 0.8rem);
-  --fs-s: clamp(0.6rem, 0.8vw, 0.6rem);
+  --fs-m: clamp(0.8rem, 1vw, 0.9rem);
+  --fs-s: clamp(0.6rem, 0.8vw, 0.7rem);
 
   --clr-paragraph: #a7a9be;
   --clr-background: #0f0e17;
