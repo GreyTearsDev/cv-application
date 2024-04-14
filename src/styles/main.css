@@ -149,7 +149,7 @@ svg {
 }
 
 fieldset svg {
-  fill: var(--clr-form-body);
+  fill: var(--clr-background);
 }
 
 .error-message {
@@ -326,7 +326,7 @@ a:focus {
   transition: transform 120ms ease-in-out;
   display: grid;
   align-items: center;
-  grid-template-columns: 7% 1fr;
+  grid-template-columns: 9.5% 1fr;
 }
 
 .btn__add {
