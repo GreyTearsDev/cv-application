@@ -33,10 +33,6 @@
   --clr-form-secondary: #f25f4c;
   --clr-form-ternary: #e53170;
 
-  --fnt-normal: 1rem;
-  --fnt-sub-heading: 1.2rem;
-  --fnt-heading: 2rem;
-
   --gradient-main: linear-gradient(
     45deg,
     hsl(32deg 100% 51%) 0%,
@@ -74,13 +70,9 @@ body {
   padding: 0;
   background-color: var(--clr-background);
   font-family: "Manrope", verdana;
-  word-spacing: 0.1em;
 }
 
-h1,
-h2,
-h3,
-h4,
+.title,
 .card p {
   color: var(--clr-background);
   margin: 0;
@@ -93,7 +85,7 @@ h4,
   padding: 6vh 6vw;
 }
 
-form > p {
+p {
   color: var(--clr-paragraph);
 }
 
@@ -125,7 +117,6 @@ input {
   background-color: var(--clr-headline);
   padding: 0.2em 0.6em;
   transition: all 100ms ease-in-out;
-  box-shadow: var(--shadow-elevation-low);
   color: var(--clr-background);
 }
 
@@ -145,20 +136,21 @@ input[type="date"]:hover {
   cursor: pointer;
 }
 
-.icon {
+svg {
   max-width: 1.6rem;
   height: auto;
   fill: var(--clr-form-highlight);
 }
 
-fieldset .icon {
+fieldset svg {
   fill: var(--clr-form-body);
 }
 
 .error-message {
   align-self: flex-start;
-  padding: 0.2em 0.6em;
-  margin: 0;
+  padding: 0.2em 0.8em 0.2em 0.6em;
+  margin: 5px 0 0;
+  border-radius: 5px 20px 20px 5px;
   color: var(--clr-form-body);
   background-color: var(--clr-form-highlight);
   animation: enter-screen 100ms ease-out;
@@ -188,7 +180,6 @@ textarea {
   resize: none;
   overflow: auto;
   box-shadow: var(--shadow-elevation-low);
-
   color: var(--clr-background);
   background-color: var(--clr-form-body);
 }
@@ -216,6 +207,7 @@ textarea::placeholder {
 }
 
 /*========MAIN SECTION STYLE==========*/
+
 .section--education,
 .section--experience {
   border-top: 2px solid black;
