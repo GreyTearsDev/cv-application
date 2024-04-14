@@ -32,14 +32,14 @@ export default function MainPage({ user, setUser }) {
   return (
     <>
       <main className="main-section">
-        <button className="btn btn__download" onClick={downloadPDF}>
-          DOWNLOAD PDF
-        </button>
         <div ref={pdfRef} className="page-section">
           <Header user={user} />
           <DynamicDisplaySection arrayName={"schools"} user={user} setUser={setUser} hideIcons={hideDeleteIcons} />
           <DynamicDisplaySection arrayName={"experience"} user={user} setUser={setUser} hideIcons={hideDeleteIcons} />
         </div>
+        <button className="btn btn__download" onClick={downloadPDF}>
+          DOWNLOAD PDF
+        </button>
       </main>
     </>
   );
