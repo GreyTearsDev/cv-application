@@ -1,6 +1,6 @@
 # CV App
 
-A beautiful, responsive, accessible and performant CV Application
+A beautiful, responsive, accessible and performant app build in ReactJS
 
 ## Click [HERE](https://cv-application-nine-tau.vercel.app/) to checkout the live preview
 
