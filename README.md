@@ -4,7 +4,7 @@ A beautiful, responsive, accessible and performant app build in ReactJS
 
 ## Click [HERE](https://cv-application-nine-tau.vercel.app/) to checkout the live preview
 
-## Technoloogies used
+## Technologies used
 
 <p>
   <a href="https://skillicons.dev">
@@ -15,4 +15,6 @@ A beautiful, responsive, accessible and performant app build in ReactJS
 
 
 This is the first project of the react course in the [The Odin Project](https://www.theodinproject.com/)'s Full-Stack JS curriculum.
+
+
 
