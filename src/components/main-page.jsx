@@ -32,7 +32,7 @@ export default function MainPage({ user, setUser }) {
   return (
     <>
       <main className="main-section">
-        <button className="btn__download" onClick={downloadPDF}>
+        <button className="btn btn__download" onClick={downloadPDF}>
           DOWNLOAD PDF
         </button>
         <div ref={pdfRef} className="page-section">
