@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import DateHandler from "../util/date-management";
 
-export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClick, text, hideIcons }) {
+export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClick, text, hideIcons, isSchool }) {
   const { getMonth, getYear } = DateHandler();
   const startMonth = getMonth(dateStart);
   const startYear = getYear(dateStart);
@@ -9,12 +9,9 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
   const endYear = getYear(dateEnd);
 
   return (
-    <div className="card">
-      {!hideIcons
-        ? <button aria-label="Delete" className="btn btn__delete" onClick={() => onClick(id)}>x</button>
-        : ""}
-      <h3 className="title title--mid">{name}</h3>
-      <h4 className="title title--small">{roleOrField}</h4>
+    <article className="card">
+      <h3 aria-label={isSchool ? "school" : "company"} className="title title--mid">{name}</h3>
+      <h4 aria-label={isSchool ? "field" : "role"} className="title title--small">{roleOrField}</h4>
       <div className="card__date">
         <p>
           {`From: ${startMonth} ${startYear}`}
@@ -24,7 +21,10 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
         </p>
       </div>
       <p>{text}</p>
-    </div>
+      {!hideIcons
+        ? <button aria-label="Delete" className="btn btn__delete" onClick={() => onClick(id)}>x</button>
+        : ""}
+    </article>
   );
 }
 
@@ -37,4 +37,5 @@ Card.propTypes = {
   onClick: PropTypes.func,
   text: PropTypes.string,
   hideIcons: PropTypes.bool,
+  isSchool: PropTypes.bool,
 };
