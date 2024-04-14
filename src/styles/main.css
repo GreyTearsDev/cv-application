@@ -92,27 +92,13 @@ form > p {
   color: var(--clr-paragraph);
 }
 
-legend {
-  background-color: var(--clr-form-highlight);
-  padding: var(--gap-xsmall) var(--gap-large);
-  font-weight: bold;
-  color: var(--clr-button-text);
-  border-radius: 5px;
-  margin-bottom: var(--gap-small);
-  background-image: var(--gradient-main);
-  box-shadow: var(--shadow-elevation-medium);
+.btn__form__info {
+  margin: var(--gap-small) 0 var(--gap-large);
+  width: 80%;
+  transition: transform 120ms ease-in-out;
   display: grid;
   align-items: center;
   grid-template-columns: 10% 1fr;
-  gap: 0.2em;
-  width: 80%;
-  transition: all 120ms ease-in-out;
-  text-align: center;
-}
-
-legend:hover {
-  transform: scale(1.05);
-  cursor: pointer;
 }
 
 fieldset {
@@ -169,17 +155,13 @@ input[type="date"]:hover {
   fill: var(--clr-form-highlight);
 }
 
-legend .icon {
+.btn__add {
+  margin-top: var(--gap-small);
+  width: 40%;
+}
+
+fieldset .icon {
   fill: var(--clr-form-body);
-}
-
-.icon--button {
-  transition: all 120ms ease-in-out;
-}
-
-.icon--button:hover {
-  transform: scale(1.25) rotate(90deg);
-  cursor: pointer;
 }
 
 .error-message {
@@ -215,7 +197,7 @@ textarea {
   overflow: auto;
   box-shadow: var(--shadow-elevation-low);
 
-  color: var(--clr-paragraph);
+  color: var(--clr-background);
   background-color: var(--clr-form-body);
 }
 
@@ -313,24 +295,31 @@ textarea::placeholder {
   display: flex;
 }
 
-.btn__download {
+.btn {
   appearance: none;
   outline: none;
   border: none;
+  background-image: var(--gradient-main);
+  transition: transform 120ms ease-in-out;
+  border-radius: 5px;
+  box-shadow: var(--shadow-elevation-medium);
+  font-weight: bold;
+  color: var(--clr-button-text);
+  align-self: center;
+  text-align: center;
+  padding: var(--gap-small) var(--gap-large);
+}
+
+.btn__download {
   padding: var(--gap-mid) var(--gap-xlarge);
-  display: flex;
   position: absolute;
   top: 35px;
   right: 0;
-  color: var(--clr-button-text);
-  background-image: var(--gradient-main);
-  font-weight: bold;
-  border-radius: 10px;
-  transition: all 120ms ease-in-out;
+  box-shadow: none;
 }
 
-.btn__download:hover {
-  transform: scale(1.15);
+.btn:hover {
+  transform: scale(1.05);
   cursor: pointer;
   font-weight: bolder;
 }
@@ -378,7 +367,7 @@ textarea::placeholder {
   .card svg {
     right: -30px;
   }
-  legend {
+  .btn__form__info {
     font-size: 0.8em;
   }
   label {
@@ -424,7 +413,7 @@ textarea::placeholder {
     transform: scale(0.9);
   }
 
-  legend {
+  .btn__form__info {
     font-size: 0.7em;
   }
   label {
@@ -483,7 +472,7 @@ textarea::placeholder {
     grid-template-columns: minmax(100px, 200px) 1fr;
   }
 
-  legend {
+  .btn__form__info {
     font-size: 0.5em;
   }
 
@@ -550,7 +539,7 @@ textarea::placeholder {
     text-align: center;
   }
 
-  legend,
+  .btn__form__info,
   .btn__download {
     font-size: 1.1em;
   }
@@ -605,7 +594,7 @@ textarea::placeholder {
     margin-bottom: 20px;
   }
 
-  legend,
+  .btn__form__info,
   .btn__download {
     font-size: 1.1em;
   }
