@@ -242,7 +242,7 @@ textarea::placeholder {
   padding-bottom: var(--gap-mid);
 }
 .main-section {
-  margin-top: 75px;
+  margin-top: 58px;
 }
 .page-section {
   background-color: var(--clr-form-body);
