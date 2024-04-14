@@ -265,7 +265,7 @@ textarea::placeholder {
 
 .card p {
   max-width: 65ch;
-  margin-bottom: var(--gap-mid);
+  margin: var(--gap-small) 0 var(--gap-mid);
 }
 
 .card__date {
