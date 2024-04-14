@@ -17,10 +17,10 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
       <h4 className="title title--small">{roleOrField}</h4>
       <div className="card__date">
         <p>
-          From: {`${startMonth} ${startYear}`}
+          {`From: ${startMonth} ${startYear}`}
         </p>
         <p>
-          To: {`${endMonth} ${endYear}`}
+          {`To: ${endMonth} ${endYear}`}
         </p>
       </div>
       <p>{text}</p>
