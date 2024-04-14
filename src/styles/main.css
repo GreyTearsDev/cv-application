@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -9,7 +15,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
 
   --gap-xsmall: 0.4em;
   --gap-small: 0.8em;
@@ -92,15 +97,6 @@ form > p {
   color: var(--clr-paragraph);
 }
 
-.btn__form__info {
-  margin: var(--gap-small) 0 var(--gap-large);
-  width: 80%;
-  transition: transform 120ms ease-in-out;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 10% 1fr;
-}
-
 fieldset {
   padding: var(--gap-xsmall) var(--gap-large) var(--gap-mid);
   margin-bottom: var(--gap-xlarge);
@@ -153,11 +149,6 @@ input[type="date"]:hover {
   max-width: 1.6rem;
   height: auto;
   fill: var(--clr-form-highlight);
-}
-
-.btn__add {
-  margin-top: var(--gap-small);
-  width: 40%;
 }
 
 fieldset .icon {
@@ -285,12 +276,6 @@ textarea::placeholder {
   margin-bottom: 0.2vh;
 }
 
-.card svg {
-  position: absolute;
-  right: -35px;
-  top: 0;
-}
-
 .flex-row {
   display: flex;
 }
@@ -308,6 +293,35 @@ textarea::placeholder {
   align-self: center;
   text-align: center;
   padding: var(--gap-small) var(--gap-large);
+}
+
+.btn__form__info {
+  margin: var(--gap-small) 0 var(--gap-large);
+  width: 80%;
+  transition: transform 120ms ease-in-out;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 10% 1fr;
+}
+
+.btn__add {
+  margin-top: var(--gap-small);
+  width: 40%;
+}
+
+.btn__delete {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 0;
+  transition: transform 120ms ease-in-out;
+}
+
+.card > .btn__delete:hover {
+  transform: scale(1.3);
 }
 
 .btn__download {
@@ -374,9 +388,6 @@ textarea::placeholder {
     font-size: 0.9em;
   }
 
-  .section .icon {
-    max-width: 1.2rem;
-  }
   .section--header {
     padding-bottom: 0;
     margin-bottom: 30px;
@@ -427,9 +438,6 @@ textarea::placeholder {
   }
   textarea {
     max-width: 180px;
-  }
-  .section .icon {
-    max-width: 1rem;
   }
   .section--header {
     padding-bottom: 0;
@@ -494,9 +502,6 @@ textarea::placeholder {
     max-width: 130px;
   }
 
-  .section .icon {
-    max-width: 0.9rem;
-  }
   .section--header {
     padding-bottom: 0;
     margin-bottom: 20px;
