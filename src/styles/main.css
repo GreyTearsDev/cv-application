@@ -514,7 +514,7 @@ a:focus {
 /* xs */
 @media (max-width: 475px) {
   .container {
-    width: 100%;
+    min-width: 320px;
     display: flex;
     flex-direction: column;
     padding: 0;
