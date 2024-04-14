@@ -21,9 +21,7 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
         </p>
       </div>
       <p>{text}</p>
-      {!hideIcons
-        ? <button aria-label="Delete" className="btn btn__delete" onClick={() => onClick(id)}>x</button>
-        : ""}
+      {!hideIcons && <button aria-label="Delete" className="btn btn__delete" onClick={() => onClick(id)}>x</button>}
     </article>
   );
 }
