@@ -12,7 +12,7 @@ function App() {
       <MainPage user={user} setUser={setUser} />
       <p className="credits">
         Created by{" "}
-        <a src="https://github.com/GreyTearsDev">
+        <a href="https://github.com/GreyTearsDev">
           Tirso Samalungo <span>(GreyTearsDev)</span>
         </a>
       </p>
