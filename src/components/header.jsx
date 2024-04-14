@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 
 export default function Header({ user }) {
   return (
-    <div className="section section--header">
-      <h1 className="title title--xlarge">{`${user.firstName} ${user.lastName}`}</h1>
+    <section aria-label="general information" className="section section--header">
+      <h1 aria-label="name" className="title title--xlarge">{`${user.firstName} ${user.lastName}`}</h1>
       <div>
         <div className="flex-row">
           <svg className="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -18,7 +18,7 @@ export default function Header({ user }) {
           <h2 className="title title--mid">Phone: {user.phone}</h2>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
