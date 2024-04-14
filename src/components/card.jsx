@@ -11,7 +11,7 @@ export default function Card({ name, roleOrField, id, dateStart, dateEnd, onClic
   return (
     <div className="card">
       {!hideIcons
-        ? <button className="btn btn__delete" onClick={() => onClick(id)}>x</button>
+        ? <button aria-label="Delete" className="btn btn__delete" onClick={() => onClick(id)}>x</button>
         : ""}
       <h3>{name}</h3>
       <h4>{roleOrField}</h4>
