@@ -11,7 +11,7 @@ function App() {
       <Form user={user} setUser={setUser} />
       <MainPage user={user} setUser={setUser} />
       <p className="credits">
-        Created by{" "}
+        {"Created by "}
         <a href="https://github.com/GreyTearsDev">
           Tirso Samalungo <span>(GreyTearsDev)</span>
         </a>
