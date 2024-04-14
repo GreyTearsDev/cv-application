@@ -19,7 +19,7 @@ export default function Section({ name, children }) {
           ? (
             <svg
               aria-hidden="true"
-              className="icon icon--arrow icon--arrow-up"
+              className="icon icon--arrow "
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -29,7 +29,7 @@ export default function Section({ name, children }) {
           : (
             <svg
               aria-hidden="true"
-              className="icon icon--arrow icon--arrow--down"
+              className="icon icon--arrow"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
