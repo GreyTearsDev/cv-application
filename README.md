@@ -1,6 +1,6 @@
 # CV App
 
-A beautiful, responsive, accessible and performant CV App
+A beautiful, responsive, accessible and performant CV Application
 
 ## Click [HERE](https://cv-application-nine-tau.vercel.app/) to checkout the live preview
 
