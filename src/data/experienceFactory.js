@@ -5,7 +5,7 @@ export default function ExperienceFactory() {
     id: uuid(),
     company: '',
     role: '',
-    responsabilities: '',
+    responsibilities: '',
     start: '',
     end: '',
   }
