@@ -10,7 +10,7 @@ export default function FormJobExperience({ setUser }) {
   const [companyNameIsValid, setCompanyNameIsValid] = useState(false);
   const [roleIsValid, setRoleIsValid] = useState(false);
   const [attemptedToSubmit, setAttemptedToSubmit] = useState(false);
-  let characterCount = experienceInfo.responsabilities.length || 0;
+  let characterCount = experienceInfo.responsibilities.length || 0;
 
   function handleAddClick() {
     if (!companyNameIsValid || !roleIsValid) return setAttemptedToSubmit(true);
@@ -28,7 +28,7 @@ export default function FormJobExperience({ setUser }) {
 
   const handleChange = (e, fieldName) => {
     setExperienceInfo(prevExperienceInfo => ({ ...prevExperienceInfo, [fieldName]: e.target.value }));
-    characterCount = experienceInfo.responsabilities.length;
+    characterCount = experienceInfo.responsibilities.length;
   };
 
   return (
@@ -84,18 +84,18 @@ export default function FormJobExperience({ setUser }) {
           isSubmitted={isSubmitted}
           setIsSubmitted={setIsSubmitted}
         />
-        <label htmlFor="responsabilities">
-          Responsabilities
+        <label htmlFor="responsibilities">
+          Responsibilities
           <textarea
-            value={isSubmitted ? "" : experienceInfo.responsabilities}
+            value={isSubmitted ? "" : experienceInfo.responsibilities}
             key={`responsabilidades${resetKey}`}
-            id="responsabilities"
-            name="responsabilities"
+            id="responsibilities"
+            name="responsibilities"
             cols={25}
             rows={5}
             maxLength={300}
-            placeholder="Describe your main responsabilities"
-            onChange={(e) => handleChange(e, "responsabilities")}
+            placeholder="Describe your main responsibilities"
+            onChange={(e) => handleChange(e, "responsibilities")}
           >
           </textarea>
           <div className="character-counter">{characterCount}/300</div>
