@@ -314,8 +314,8 @@ textarea::placeholder {
   transform: scale(0.97);
 }
 
-.btn:focus,
-a:focus {
+.btn:focus-visible,
+a:focus-visible {
   outline: 2px solid var(--clr-form-ternary);
   outline-offset: -2px;
 }
