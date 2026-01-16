@@ -13,7 +13,7 @@ function App() {
       <p className="credits">
         {"Created by "}
         <a href="https://github.com/GreyTearsDev">
-          Tirso Samalungo <span>(GreyTearsDev)</span>
+         GreyTearsDev
         </a>
       </p>
     </div>
